@@ -2,10 +2,15 @@ ROM ubuntu:18.04
 LABEL maintainer="dohnetwork@gmail.com"
 LABEL description="Ubunta"
 #RUN apt-get -y update &&  DEBIAN_FRONTEND=noninteractive  apt-get install  -y  php python python-pip libmysqlclient-dev ftp nano cron \
-RUN apt-get -y update &&  DEBIAN_FRONTEND=noninteractive  apt-get install  -y  curl wget python2.7 \
+RUN apt-get -y update &&  DEBIAN_FRONTEND=noninteractive  apt-get install  -y  curl wget python2.7 php-cli php-mbstring git unzip \
  && mkdir /install
-RUN chmod -R 777 /install
+RUN chmod -R 777 /install cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+#RUN  apt-get install curl php-cli php-mbstring git unzip
+#   71  apt install composer
+#   72  ls
+#RUN composer require mpdf/mpdf:5.7.0
 WORKDIR /install
+
 RUN wget https://s4.softaculous.com/a/ampps/files/Ampps-3.5-x86_64.run
 RUN ls -l
 RUN pwd
@@ -46,6 +51,12 @@ EXPOSE  80
 #EXPOSE  9007
 #EXPOSE  9008
 #EXPOSE  8085
+
+WORKDIR /usr/local/ampps/www
+RUN composer require mpdf/mpdf:5.7.0
+#WORKDIR /install
+
+
 CMD ["/usr/local/ampps/apache/bin/httpd","-DFOREGROUND"]
 
 

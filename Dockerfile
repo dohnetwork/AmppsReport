@@ -1,4 +1,4 @@
-ROM ubuntu:18.04
+FROM ubuntu:18.04
 LABEL maintainer="dohnetwork@gmail.com"
 LABEL description="Ubunta"
 #RUN apt-get -y update &&  DEBIAN_FRONTEND=noninteractive  apt-get install  -y  php python python-pip libmysqlclient-dev ftp nano cron \

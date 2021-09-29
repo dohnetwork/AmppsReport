@@ -4,7 +4,8 @@ LABEL description="Ubunta"
 #RUN apt-get -y update &&  DEBIAN_FRONTEND=noninteractive  apt-get install  -y  php python python-pip libmysqlclient-dev ftp nano cron \
 RUN apt-get -y update &&  DEBIAN_FRONTEND=noninteractive  apt-get install  -y  curl wget python2.7 php-cli php-mbstring git unzip \
  && mkdir /install
-RUN chmod -R 777 /install cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+RUN chmod -R 777 /install 
+RUN cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 #RUN  apt-get install curl php-cli php-mbstring git unzip
 #   71  apt install composer
 #   72  ls

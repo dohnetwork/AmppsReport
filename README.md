@@ -5,4 +5,7 @@ EXPOSE  80
 #EXPOSE  8085
 CMD ["/usr/local/ampps/apache/bin/httpd","-DFOREGROUND"]
 
+/usr/local/ampps/apache/conf/httpd.conf  บรรทัดที่ 570
+จาก /usr/local/ampps/python/python.conf เป้น /usr/local/ampps/conf/python.conf
+
 

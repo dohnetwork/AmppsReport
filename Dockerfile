@@ -54,6 +54,7 @@ EXPOSE  80
 
 WORKDIR /usr/local/ampps/www
 RUN composer require mpdf/mpdf:5.7.0
+COPY ./data ./
 #WORKDIR /install
 
 

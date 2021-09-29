@@ -1,5 +1,4 @@
-F
-FROM ubuntu:18.04
+ROM ubuntu:18.04
 LABEL maintainer="dohnetwork@gmail.com"
 LABEL description="Ubunta"
 #RUN apt-get -y update &&  DEBIAN_FRONTEND=noninteractive  apt-get install  -y  php python python-pip libmysqlclient-dev ftp nano cron \
@@ -26,21 +25,28 @@ RUN ./Ampps-3.5-x86_64.run
 #EXPOSE 80
 #CMD ./ubash: y: command not found
 #sr/local/ampps/apache/bin/apachectl -D FOREGROUND
-RUN pwd
-RUN ls -l
-COPY /python.conf /usr/local/ampps/python/
+#RUN pwd
+#RUN ls -l
+#COPY /python.conf /usr/local/ampps/python/
 #COPY file/python.conf /usr/local/ampps/python/
 #COPY files/php/php-fpm.conf /etc/php7/
 #EXPOSE 80
 #CMD usr/local/ampps/apache/bin/apachectl -D FOREGROUND
 #CMD usr/local/ampps/apache/bin/httpd
 #CMD /usr/local/ampps/apache/bin/httpd
-RUN /usr/local/ampps/apache/bin/httpd
+# /usr/local/ampps/apache/conf/httpd.conf: Could not open configuration file /usr/local/ampps/python/python.conf:
+COPY python.conf  /usr/local/ampps/python/python.conf
+#RUN /usr/local/ampps/apache/bin/httpd test run
 #/usr/local/ampps/apache/bin
+#RUN cp /usr/local/ampps/python/python.conf  /usr/local/ampps/conf/python.conf
+#COPY python.conf  /usr/local/ampps/conf/python.conf
+RUN pwd
+RUN ls -l
 EXPOSE  80
 #EXPOSE  9007
 #EXPOSE  9008
 #EXPOSE  8085
+CMD ["/usr/local/ampps/apache/bin/httpd","-DFOREGROUND"]
 
 
 

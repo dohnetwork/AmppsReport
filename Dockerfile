@@ -41,11 +41,12 @@ RUN ./Ampps-3.5-x86_64.run
 #CMD usr/local/ampps/apache/bin/httpd
 #CMD /usr/local/ampps/apache/bin/httpd
 # /usr/local/ampps/apache/conf/httpd.conf: Could not open configuration file /usr/local/ampps/python/python.conf:
-COPY python.conf  /usr/local/ampps/python/python.conf
+##COPY python.conf  /usr/local/ampps/python/python.conf
 #RUN /usr/local/ampps/apache/bin/httpd test run
 #/usr/local/ampps/apache/bin
 #RUN cp /usr/local/ampps/python/python.conf  /usr/local/ampps/conf/python.conf
 #COPY python.conf  /usr/local/ampps/conf/python.conf
+RUN ./usr/local/ampps/Ampps
 RUN pwd
 RUN ls -l
 EXPOSE  80
